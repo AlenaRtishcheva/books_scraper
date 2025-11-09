@@ -153,7 +153,8 @@ def scrape_books(is_save: bool = False) -> list:
     # Если флаг сохранения установлен и есть данные для сохранения
     if is_save and list_books:
         try:
-            file_path = 'D:/books_scraper/artifacts/books_data.txt'
+            os.makedirs('../artifacts', exist_ok=True)
+            file_path = '../artifacts/books_data.txt'
             with open(file_path, 'w', encoding='utf-8') as f:
                 for i, book in enumerate(list_books, 1):
                     book_text = f'Book №{i}\n'  
